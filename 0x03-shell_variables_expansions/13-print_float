@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%f" "$NUM" | rev | cut 5- | rev
+printf "%f" "$NUM" | rev | cut -b 5- | rev
