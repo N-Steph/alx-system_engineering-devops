@@ -1,0 +1,2 @@
+#!/bin/bash
+printf "%f" "$NUM" | rev | cut 5- | rev
