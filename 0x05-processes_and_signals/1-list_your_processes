@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This script displays a list of currently running processes
+#showing process heirarchy and displaying in a user-oriented format
+ps axf -o uname,pid,%cpu,%mem,vsize,rssize,tname,stat,start_time,time,args
