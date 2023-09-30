@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#This script displays lines containing bash word in the list of currently running processes
+# shellcheck disable=SC2009
+ps axf -o uname,pid,%cpu,%mem,vsize,rssize,tname,stat,start_time,time,args | grep bash
