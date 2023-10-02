@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
 #Bash script that print some basic information about 'school' file
-if [ -e school ];
+if [ -e school ] || [ -d school ];
 then
 	echo "school file exists";
 
-	wc -c school > num_char;
+	if [ -d school ];
+	then
+		find ./school | wc -c > num_char;
+	else
+		wc -c school > num_char;
+	fi
 	string=$(cut -d " " -f 1 num_char);
+
 	if [ "$string" -eq 0 ];
 	then
 		echo "school file is empty";
@@ -17,6 +23,7 @@ then
 	then
 		echo "school is a regular file";
 	fi
+
 	rm num_char;
 else
 	echo "school file does not exist";
