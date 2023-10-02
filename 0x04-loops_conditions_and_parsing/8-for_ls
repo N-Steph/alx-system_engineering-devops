@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Script displaying the content of the current dirctory
-for  line in $(ls ./);
+for  line in ./*;
 do
+	[[ -e "$line" ]] || break;
 	echo "$line" > file;
 	cut -d "-" -f 2 file;
 	rm file
