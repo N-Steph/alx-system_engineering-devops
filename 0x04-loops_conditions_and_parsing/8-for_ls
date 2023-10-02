@@ -2,8 +2,9 @@
 # Script displaying the content of the current dirctory
 for  line in ./*;
 do
-	[[ -e "$line" ]] || break;
 	echo "$line" > file;
-	cut -d "-" -f 2 file;
-	rm file
+	cut -d "-" -f 2 file > file2;
+	cut -d "/" -f 2 file2
+	rm file;
+	rm file2;
 done
