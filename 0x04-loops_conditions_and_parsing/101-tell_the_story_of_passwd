@@ -1,14 +1,7 @@
 #!/usr/bin/env bash
 # Display a story for each line in /etc/passwd file
 
-while IFS= read -r line;
+while IFS=: read -r f1 f2 f3 f4 f5 f6 f7;
 do
-	USERNAME=$(echo "$line" | cut -d ':' -f 1)
-	GROUP_ID=$(echo "$line" | cut -d ':' -f 4)
-	HOME_DIRECTORY=$(echo "$line" | cut -d ':' -f 6)
-	COMMAND_SHELL=$(echo "$line" | cut -d ':' -f 7)
-	USER_ID=$(echo "$line" | cut -d ':' -f 3)
-	PASSWORD=$(echo "$line" | cut -d ':' -f 2)
-	USER_ID_INFO=$(echo "$line" | cut -d ':' -f 5)
-	echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. $USER_ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO";
+	echo "The user $f1 is part of the $f4 gang, lives in $f6 and rides $f7. $f3's place is protected by the passcode $f2, more info about the user here: $f5";
 done < "/etc/passwd"
