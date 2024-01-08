@@ -1,5 +1,0 @@
-HOST 
-    HOSTName ubuntu
-    User ubuntu
-    Port 22
-    IdentityFile ~/.ssh/shool
