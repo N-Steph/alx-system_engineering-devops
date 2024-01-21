@@ -1,7 +1,8 @@
-# Conigures the client SSH configuration file to use the private key ~/.ssh/school
+# Configures the client SSH configuration file to use the private key ~/.ssh/school
 
-$config_content = '/usr/bin/sed -i "s/#   IdentityFile ~\/.ssh\/id_rsa/IdentityFile ~\/.ssh\/school/" /etc/ssh/ssh_config'
+$config_content = "Host 236263-web-01\n\tHostName 54.162.2.130\n\tUser ubuntu\n\tIdentityFile ~/.ssh/school"
 
-exec {$config_content:
-  command => $config_content
+file {'/root/.ssh/config':
+  ensure  => present,
+  content => $config_content
   }
