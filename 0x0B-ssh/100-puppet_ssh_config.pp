@@ -1,8 +1,15 @@
 # Configures the client SSH configuration file to use the private key ~/.ssh/school
 
-$config_content = "Host 236263-web-01\n\tHostName 54.162.2.130\n\tUser ubuntu\n\tIdentityFile ~/.ssh/school"
+file_line {'Turn off passwd auth':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'PasswordAuthentication no',
+  match  => 'PasswordAuthentication',
+}
 
-file {'/root/.ssh/config':
-  ensure  => present,
-  content => $config_content
-  }
+file_line {'Declare identity file':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => 'IdentityFile ~/.ssh/school',
+  match  =>  'IdentityFile ~/.ssh/id_rsa'
+}
