@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Installing nginx web server
+
+sudo su
+apt-get -y install nginx
+echo "Hello World!" > /var/www/html/index.nginx-debina.html
