@@ -4,5 +4,5 @@
 sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 # Reads the string following -c option as a command
-sudo bash -c 'echo "Hello World!" > /var/www/html/index.nginx-debian.html'
+sudo bash -c 'echo "Hello World!" > /var/www/html/index.html'
 sudo service nginx restart
