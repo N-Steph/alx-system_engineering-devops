@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script installs and configure HAproxy load balancer
+
+apt-get -y install --no-install-recommends software-properties-common
+add-apt-repository ppa:vbernat/haproxy-2.8
+apt-get -y install haproxy=2.8.\*
+cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.org
+echo -e "defaults\n\ttimeout connect 60s\n\ttimeout client 60s\n\ttimeout server 30s\n\nfrontend airbnb_main\n\tbind *:80\n\tdefault_backend airbnb_backend\n\nbackend airbnb_backend\n\tbalance roundrobin\n\tserver 236263-web-01 34.229.72.86:80 check\n\tserver 236263-web-02 54.83.130.153:80 check\n" > /etc/haproxy/haproxy.cfg
+service haproxy restart
