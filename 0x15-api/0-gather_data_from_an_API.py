@@ -9,16 +9,23 @@ import sys
 if __name__ == '__main__':
     employee_todos_url = 'https://jsonplaceholder.typicode.com/todos'
     employee_id_url = 'https://jsonplaceholder.typicode.com/users'
-    employee_todos = requests.get(employee_todos_url).json()
-    employees = requests.get(employee_id_url).json()
+
+    try:
+        employee_todos = requests.get(employee_todos_url).json()
+        employees = requests.get(employee_id_url).json()
+    except requests.exceptions.RequestException:
+        sys.exit()
 
     total_number_of_task = 0
     task_completed = []
     employee_name = ''
 
+    if len(sys.argv) < 2:
+        sys.exit()
+
     try:
         int(sys.argv[1])
-    except:
+    except ValueError:
         sys.exit()
 
     for employee in employees:
