@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# Fetches data from the internet using a API
+"""
+Fetches data from the internet using a API
+"""
 
 import requests
 import sys
