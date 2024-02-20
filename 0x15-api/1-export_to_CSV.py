@@ -30,7 +30,7 @@ if __name__ == '__main__':
 
     for employee in employees:
         if employee['id'] == int(sys.argv[1]):
-            employee_name = employee['name']
+            employee_name = employee['username']
             break
 
     if len(employee_name) == 0:
