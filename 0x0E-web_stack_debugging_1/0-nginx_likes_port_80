@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # Debugging nginx to listen on port 80
-PORTS=$(grep -m 1 -A1 "server {" /etc/nginx/sites-available/default | tail -n 1)
-sed -i " s/$PORTS/\tlisten 80 default_server;/"  /etc/nginx/sites-available/default
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s -t /etc/nginx/sites-enabled/ /etc/nginx/sites-available/default
 service nginx restart
