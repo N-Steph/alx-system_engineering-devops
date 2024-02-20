@@ -43,5 +43,5 @@ if __name__ == '__main__':
                              task['title']])
 
     with open('{}.csv'.format(sys.argv[1]), 'w') as csvfile:
-        csvwriter = csv.writer(csvfile)
+        csvwriter = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
         csvwriter.writerows(csv_data)
