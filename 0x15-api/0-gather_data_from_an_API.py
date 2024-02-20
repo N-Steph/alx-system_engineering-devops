@@ -43,7 +43,7 @@ if __name__ == '__main__':
             if task['title'] != '':
                 total_number_of_task += 1
 
-    print('Employee {} is done with task({}/{}):'.format(employee_name,
+    print('Employee {} is done with tasks({}/{}):'.format(employee_name,
                                                          len(task_completed),
                                                          total_number_of_task))
     for task in task_completed:
