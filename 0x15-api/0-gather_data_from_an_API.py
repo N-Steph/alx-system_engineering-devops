@@ -16,10 +16,18 @@ if __name__ == '__main__':
     task_completed = []
     employee_name = ''
 
+    try:
+        int(sys.argv[1])
+    except:
+        sys.exit()
+
     for employee in employees:
         if employee['id'] == int(sys.argv[1]):
             employee_name = employee['name']
             break
+
+    if len(employee_name) == 0:
+        sys.exit()
 
     for task in employee_todos:
         if task['userId'] == int(sys.argv[1]):
