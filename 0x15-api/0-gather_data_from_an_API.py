@@ -10,6 +10,14 @@ if __name__ == '__main__':
     employee_todos_url = 'https://jsonplaceholder.typicode.com/todos'
     employee_id_url = 'https://jsonplaceholder.typicode.com/users'
 
+    if len(sys.argv) < 2:
+        sys.exit()
+
+    try:
+        int(sys.argv[1])
+    except ValueError:
+        sys.exit()
+
     try:
         employee_todos = requests.get(employee_todos_url).json()
         employees = requests.get(employee_id_url).json()
@@ -19,14 +27,6 @@ if __name__ == '__main__':
     total_number_of_task = 0
     task_completed = []
     employee_name = ''
-
-    if len(sys.argv) < 2:
-        sys.exit()
-
-    try:
-        int(sys.argv[1])
-    except ValueError:
-        sys.exit()
 
     for employee in employees:
         if employee['id'] == int(sys.argv[1]):
@@ -38,9 +38,10 @@ if __name__ == '__main__':
 
     for task in employee_todos:
         if task['userId'] == int(sys.argv[1]):
-            if task['completed']:
+            if task['completed'] and task['title'] != '':
                 task_completed.append(task['title'])
-            total_number_of_task += 1
+            if task['title'] != '':
+                total_number_of_task += 1
 
     print('Employee {} is done with task({}/{}):'.format(employee_name,
                                                          len(task_completed),
