@@ -2,9 +2,9 @@
 # Run Nginx as user nginx
 
 APACHE_PID=$(pgrep apache2 | head -n 1)
-kill "$APACHE_PID"
+sudo kill "$APACHE_PID"
 LISTEN_DIRECTIVE=$(grep -A1 "^server {" /etc/nginx/sites-available/default | tail -n 1)
-sed -i "s/$LISTEN_DIRECTIVE/\tlisten 8080 default_server;/" /etc/nginx/sites-available/default
-usermod -G root nginx
-chmod g+r /etc/nginx/nginx.conf
-su nginx -c 'service nginx start'
+sudo sed -i "s/$LISTEN_DIRECTIVE/\tlisten 8080 default_server;/" /etc/nginx/sites-available/default
+sudo usermod -G root nginx
+sudo chmod g+r /etc/nginx/nginx.conf
+sudo su nginx -c 'service nginx start'
