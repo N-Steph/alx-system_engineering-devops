@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Run Nginx as user nginx
+sudo chmod o+r /etc/nginx/nginx.conf
+sudo su nginx -c 'service nginx start'
+LISTEN_DIRECTIVE=$(grep -A1 "^server {" /etc/nginx/sites-available/default | tail -n 1)
+sudo sed -i "s/$LISTEN_DIRECTIVE/\tlisten 8080 default_server;/" /etc/nginx/sites-available/default
+sudo su nginx -c 'service nginx restart'
