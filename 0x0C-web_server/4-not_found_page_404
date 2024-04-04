@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # Installing and configuring nginx web server
 
+apt-get -y update
 apt-get -y install nginx
-ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 touch /usr/share/nginx/html/custom_404.html
 echo -e "Ceci n'est pas une page\n" > /usr/share/nginx/html/custom_404.html
