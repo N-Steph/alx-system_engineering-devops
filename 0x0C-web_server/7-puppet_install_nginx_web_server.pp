@@ -27,12 +27,6 @@ exec {'redirection and custom_404.html page content':
   require => Package['Install nginx']
 }
 
-exec {'nginx listen on port 80':
-  command =>'/usr/sbin/ufw nginx \'HTTPS\'',
-  require => Package['Install nginx']
-}
-
-
 service {'restart nginx':
   ensure  => running,
   name    => 'nginx',
