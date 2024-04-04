@@ -3,7 +3,7 @@
 exec { 'custom http response header':
   command => 'sed -i "s/http {/http {\n\tadd_header X-Served-By $HOSTNAME always;\n/" /etc/nginx/nginx.conf',
   path    => '/usr/bin',
-  Before  => Package['Install nginx']
+  require  => Package['Install nginx']
 }
 
 package {'Install nginx':
