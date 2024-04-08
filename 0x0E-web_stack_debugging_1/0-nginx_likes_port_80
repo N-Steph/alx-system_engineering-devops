@@ -2,6 +2,6 @@
 # Automate debugging procedure
 
 sudo apt-get -y update;
-sudo apt-get -y install nginx;
+#sudo apt-get -y install nginx;
 sudo sed -i "s/listen 8080 default_server;/listen 80 default_server;/" /etc/nginx/sites-available/default;
 sudo service nginx start;
