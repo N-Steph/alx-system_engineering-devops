@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Automate debugging procedure
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo service nginx start
