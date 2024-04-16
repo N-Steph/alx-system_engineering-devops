@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-# Run Nginx as user nginx
-sudo chmod o+r /etc/nginx/nginx.conf
-sudo su nginx -c 'service nginx start'
-sudo sed -i "s/80/8080/" /etc/nginx/sites-available/default
-sudo su nginx -c 'service nginx restart'
