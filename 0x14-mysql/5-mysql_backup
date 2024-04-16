@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# Create a MySQL dump of all the databases in MySQL server and
-# along side, create a compress tar.gz archive of the MySQL dump created.
-
-# Dump all databases and table of MySQL server in backup.sql file
-sudo mysqldump -uroot -p"$1" --all-databases > backup.sql
-
-# Creata a .tar.gz compressed archive
-sudo tar -czvf "$(date +%d-%m-%Y).tar.gz" backup.sql
