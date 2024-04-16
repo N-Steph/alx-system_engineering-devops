@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Fixing container so that Nginx is running as the nginx user.
-sudo sed -i "s/#user www-data/user nginx/" /etc/nginx/nginx.conf
 sudo chmod o+r /etc/nginx/nginx.conf
-sudo sed -i "s/listen 80 default_server;/listen 8080 default_server;/" /etc/nginx/sites-available/default
+sudo sed -i "s/80/8080/" /etc/nginx/sites-available/default
 sudo pkill apache2
 sudo -u nginx service nginx start
