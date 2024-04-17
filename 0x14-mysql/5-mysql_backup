@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Create a mysql dump file and an a archive of it
 sudo mysqldump -p "$1" --all-databases > backup.sql
-sudo tar -czvf "$(date +%d-%m-%Y).tar.gz" backup.sql
+sudo tar -czvf "$(date +%d-%m-%Y)".tar.gz backup.sql
