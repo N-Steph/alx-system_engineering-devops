@@ -2,6 +2,6 @@
 # Automate debugging procedure
 
 sudo apt-get -y update;
-#sudo apt-get -y install nginx;
+sudo pkill apache2;
 sudo sed -i "s/[0-9]*/80/" /etc/nginx/sites-available/default;
 sudo service nginx restart;
