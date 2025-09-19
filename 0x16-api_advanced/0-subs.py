@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Implementation of number_of_suscribers function"""
 
 import requests
 
