@@ -27,8 +27,6 @@ def recurse(subreddit, hot_list=[]):
         for post in response.json()["data"]["children"]:
             hot_list.append(post["data"]["title"])
         hot_list.append(response.json()["data"]["after"])
-        # print(hot_list)
-        print("start next recursion")
         return recurse(subreddit, hot_list)
     else:
         if (len(hot_list) != 0):
