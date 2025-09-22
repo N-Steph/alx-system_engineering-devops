@@ -22,7 +22,6 @@ def recurse(subreddit, hot_list=[]):
                             params=params,
                             headers=headers,
                             allow_redirects=False)
-    print(response.status_code)
     if (response.status_code == 200):
         for post in response.json()["data"]["children"]:
             hot_list.append(post["data"]["title"])
