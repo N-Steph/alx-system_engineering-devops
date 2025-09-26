@@ -2,3 +2,4 @@
 # Automate debugging procedure
 
 sudo ufw allow 80;
+sudo service nginx restart;
