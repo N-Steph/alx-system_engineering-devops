@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 # Automate debugging procedure
 
-sudo apt-get -y update;
-sudo pkill apache2;
-sudo sed -i "s/[0-9]*/80/" /etc/nginx/sites-available/default;
-sudo service nginx restart;
+sudo ufw allow 80;
