@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # Automate debugging procedure
 
-sudo pgrep -f "nginx: master" | xargs kill -9;
-sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default;
-sudo sed -i "s/ipv6only=on/ipv6only=off/g" /etc/nginx/sites-enabled/default;
-sudo sed -i "s/ipv6only=on/ipv6only=off/g" /etc/nginx/sites-available/default;
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx start;
