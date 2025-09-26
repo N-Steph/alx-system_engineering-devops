@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Automate debugging procedure
 
-sudo ufw allow 80;
-sudo service nginx restart;
+sudo pgrep -f "nginx: master" | xargs kill -9;
+sudo sed -i "s/8080/80/g" /etc/nginx/sites-enabled/default;
+sudo service nginx start;
