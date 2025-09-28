@@ -2,4 +2,4 @@
 # Make nginx run on port 80
 
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-sudo bash -c "sed 's|pid /run/nginx.pid|pid /tmp/nginx-custom.pid|g' /etc/nginx/nginx.conf > /tmp/nginx-temp.conf && nginx -c /tmp/nginx-temp.conf"
+sudo bash -c "sed 's|pid /run/nginx.pid|pid /tmp/nginx-custom.pid|g' /etc/nginx/nginx.conf > /tmp/nginx-temp.conf | nginx -c /tmp/nginx-temp.conf"
