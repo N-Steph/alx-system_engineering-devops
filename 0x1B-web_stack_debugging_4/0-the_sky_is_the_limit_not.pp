@@ -8,13 +8,14 @@ exec { 'uncomment_multi_accept':
 
 # Add open_file_cache directives to http block
 exec { 'add_open_file_cache':
-  command => "/bin/sed -i '/^http {/a\\    open_file_cache max=5000 inactive=60s;\\n    open_file_cache_min_uses 1;\\n    open_file_cache_errors on;' /etc/nginx/nginx.conf",
+  command => "/bin/sed -i '/^http {/a\\    open_file_cache max=5000 inactive=60s;\\n    
+  open_file_cache_min_uses 1;\\n    open_file_cache_errors on;' /etc/nginx/nginx.conf",
   unless  => "/bin/grep -q 'open_file_cache max=' /etc/nginx/nginx.conf",
 }
 
 # Restart nginx to apply changes
 exec { 'reload_nginx':
-  command     => "/usr/sbin/nginx -t && /usr/sbin/service nginx restart",
+  command     => '/usr/sbin/nginx -t && /usr/sbin/service nginx restart',
   refreshonly => true,
   subscribe   => [Exec['uncomment_multi_accept'], Exec['add_open_file_cache']],
 }
